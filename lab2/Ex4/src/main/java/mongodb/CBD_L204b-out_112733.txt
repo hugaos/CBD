@@ -1,0 +1,8 @@
+servico.atenderPedido("user3", "ProdutoA", 10);
+        servico.atenderPedido("user3", "ProdutoB", 15);
+        servico.atenderPedido("user3", "ProdutoC", 10);
+
+Output:
+Pedido atendido com sucesso para o utilizador user3
+Pedido atendido com sucesso para o utilizador user3
+Erro: Limite de produtos excedido para o utilizador user3

@@ -1,0 +1,63 @@
+cqlsh> CREATE KEYSPACE exemplo_keyspace WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
+
+cqlsh> DESCRIBE KEYSPACE exemplo_keyspace;
+CREATE KEYSPACE exemplo_keyspace WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'}  AND durable_writes = true;
+
+
+cqlsh> CREATE TABLE exemplo_keyspace.users (
+   ...     user_id UUID PRIMARY KEY,
+   ...     name text,
+   ...     age int,
+   ...     emails list<text>,
+   ...     address map<text, text>
+   ... );
+   
+   
+cqlsh> DESCRIBE KEYSPACE exemplo_keyspace;
+CREATE KEYSPACE exemplo_keyspace WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'}  AND durable_writes = true;
+CREATE TABLE exemplo_keyspace.users (
+    user_id uuid PRIMARY KEY,
+    age int,
+    name text,
+    address map<text, text>,
+    emails list<text>
+) WITH additional_write_policy = '99p'
+    AND allow_auto_snapshot = true
+    AND bloom_filter_fp_chance = 0.01
+    AND caching = {'keys': 'ALL', 'rows_per_partition': 'NONE'}
+    AND cdc = false
+    AND comment = ''
+    AND compaction = {'class': 'org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy', 'max_threshold': '32', 'min_threshold': '4'}
+    AND compression = {'chunk_length_in_kb': '16', 'class': 'org.apache.cassandra.io.compress.LZ4Compressor'}
+    AND memtable = 'default'
+    AND crc_check_chance = 1.0
+    AND default_time_to_live = 0
+    AND extensions = {}
+    AND gc_grace_seconds = 864000
+    AND incremental_backups = true
+    AND max_index_interval = 2048
+    AND memtable_flush_period_in_ms = 0
+    AND min_index_interval = 128
+    AND read_repair = 'BLOCKING'
+    AND speculative_retry = '99p';
+    
+    
+cqlsh> INSERT INTO exemplo_keyspace.users (user_id, name, age, emails, address) 
+   ... VALUES (uuid(), 'Alice', 25, ['alice@example.com'], {'city': 'Lisboa', 'country': 'Portugal'});
+   
+   
+cqlsh> SELECT * FROM exemplo_keyspace.users;
+
+ user_id                              | address                                   | age | emails                | name
+--------------------------------------+-------------------------------------------+-----+-----------------------+-------
+ 7ef81437-6812-4b94-9612-e014cd0f98b1 | {'city': 'Lisboa', 'country': 'Portugal'} |  25 | ['alice@example.com'] | Alice
+
+cqlsh> UPDATE exemplo_keyspace.users SET age = 26 WHERE user_id= 7ef81437-6812-4b94-9612-e014cd0f98b1;
+
+cqlsh> DELETE FROM exemplo_keyspace.users WHERE user_id = 7ef81437-6812-4b94-9612-e014cd0f98b1;
+cqlsh> SELECT * FROM exemplo_keyspace.users;
+
+ user_id | address | age | emails | name
+---------+---------+-----+--------+------
+
+

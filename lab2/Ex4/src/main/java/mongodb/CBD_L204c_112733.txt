@@ -1,0 +1,1 @@
+Não implementei esta solução em redis do guião passado.

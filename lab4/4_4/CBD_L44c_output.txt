@@ -1,0 +1,177 @@
+#1 Liste o nome e a população de todas as cidades.
+Record<{City: "Lisboa", Population: 500000}>
+Record<{City: "Porto", Population: 300000}>
+Record<{City: "Madrid", Population: 3200000}>
+Record<{City: "Barcelona", Population: 1600000}>
+Record<{City: "Paris", Population: 2100000}>
+Record<{City: "Lisboa", Population: 500000}>
+Record<{City: "Porto", Population: 300000}>
+Record<{City: "Madrid", Population: 3200000}>
+Record<{City: "Barcelona", Population: 1600000}>
+Record<{City: "Paris", Population: 2100000}>
+
+#2 Liste todas as rotas entre cidades e as suas distâncias
+Record<{c1.name: "Lisboa", c2.name: "Porto", r.distance_km: 313}>
+Record<{c1.name: "Lisboa", c2.name: "Porto", r.distance_km: 313}>
+Record<{c1.name: "Lisboa", c2.name: "Porto", r.distance_km: 313}>
+Record<{c1.name: "Lisboa", c2.name: "Porto", r.distance_km: 313}>
+Record<{c1.name: "Lisboa", c2.name: "Porto", r.distance_km: 313}>
+Record<{c1.name: "Porto", c2.name: "Madrid", r.distance_km: 564}>
+Record<{c1.name: "Porto", c2.name: "Madrid", r.distance_km: 564}>
+Record<{c1.name: "Porto", c2.name: "Madrid", r.distance_km: 564}>
+Record<{c1.name: "Porto", c2.name: "Madrid", r.distance_km: 564}>
+Record<{c1.name: "Porto", c2.name: "Madrid", r.distance_km: 564}>
+Record<{c1.name: "Madrid", c2.name: "Barcelona", r.distance_km: 504}>
+Record<{c1.name: "Madrid", c2.name: "Barcelona", r.distance_km: 504}>
+Record<{c1.name: "Madrid", c2.name: "Barcelona", r.distance_km: 504}>
+Record<{c1.name: "Madrid", c2.name: "Barcelona", r.distance_km: 504}>
+Record<{c1.name: "Madrid", c2.name: "Barcelona", r.distance_km: 504}>
+Record<{c1.name: "Barcelona", c2.name: "Paris", r.distance_km: 831}>
+Record<{c1.name: "Barcelona", c2.name: "Paris", r.distance_km: 831}>
+Record<{c1.name: "Barcelona", c2.name: "Paris", r.distance_km: 831}>
+Record<{c1.name: "Barcelona", c2.name: "Paris", r.distance_km: 831}>
+Record<{c1.name: "Barcelona", c2.name: "Paris", r.distance_km: 831}>
+Record<{c1.name: "Lisboa", c2.name: "Porto", r.distance_km: 313}>
+Record<{c1.name: "Lisboa", c2.name: "Porto", r.distance_km: 313}>
+Record<{c1.name: "Lisboa", c2.name: "Porto", r.distance_km: 313}>
+Record<{c1.name: "Lisboa", c2.name: "Porto", r.distance_km: 313}>
+Record<{c1.name: "Porto", c2.name: "Madrid", r.distance_km: 564}>
+Record<{c1.name: "Porto", c2.name: "Madrid", r.distance_km: 564}>
+Record<{c1.name: "Porto", c2.name: "Madrid", r.distance_km: 564}>
+Record<{c1.name: "Porto", c2.name: "Madrid", r.distance_km: 564}>
+Record<{c1.name: "Madrid", c2.name: "Barcelona", r.distance_km: 504}>
+Record<{c1.name: "Madrid", c2.name: "Barcelona", r.distance_km: 504}>
+Record<{c1.name: "Madrid", c2.name: "Barcelona", r.distance_km: 504}>
+Record<{c1.name: "Madrid", c2.name: "Barcelona", r.distance_km: 504}>
+Record<{c1.name: "Barcelona", c2.name: "Paris", r.distance_km: 831}>
+Record<{c1.name: "Barcelona", c2.name: "Paris", r.distance_km: 831}>
+Record<{c1.name: "Barcelona", c2.name: "Paris", r.distance_km: 831}>
+Record<{c1.name: "Barcelona", c2.name: "Paris", r.distance_km: 831}>
+
+#3 Liste as empresas de transporte e o número total de rotas operadas por cada uma.
+Record<{e.name: "Alpha Transports", Routes: 18}>
+Record<{e.name: "FastRail", Routes: 9}>
+Record<{e.name: "AirLink", Routes: 9}>
+
+#4Liste as cidades conectadas diretamente a outras cidades.
+Record<{From: "Lisboa", To: "Porto"}>
+Record<{From: "Lisboa", To: "Porto"}>
+Record<{From: "Lisboa", To: "Porto"}>
+Record<{From: "Lisboa", To: "Porto"}>
+Record<{From: "Lisboa", To: "Porto"}>
+Record<{From: "Porto", To: "Madrid"}>
+Record<{From: "Porto", To: "Madrid"}>
+Record<{From: "Porto", To: "Madrid"}>
+Record<{From: "Porto", To: "Madrid"}>
+Record<{From: "Porto", To: "Madrid"}>
+Record<{From: "Madrid", To: "Barcelona"}>
+Record<{From: "Madrid", To: "Barcelona"}>
+Record<{From: "Madrid", To: "Barcelona"}>
+Record<{From: "Madrid", To: "Barcelona"}>
+Record<{From: "Madrid", To: "Barcelona"}>
+Record<{From: "Barcelona", To: "Paris"}>
+Record<{From: "Barcelona", To: "Paris"}>
+Record<{From: "Barcelona", To: "Paris"}>
+Record<{From: "Barcelona", To: "Paris"}>
+Record<{From: "Barcelona", To: "Paris"}>
+Record<{From: "Lisboa", To: "Porto"}>
+Record<{From: "Lisboa", To: "Porto"}>
+Record<{From: "Lisboa", To: "Porto"}>
+Record<{From: "Lisboa", To: "Porto"}>
+Record<{From: "Porto", To: "Madrid"}>
+Record<{From: "Porto", To: "Madrid"}>
+Record<{From: "Porto", To: "Madrid"}>
+Record<{From: "Porto", To: "Madrid"}>
+Record<{From: "Madrid", To: "Barcelona"}>
+Record<{From: "Madrid", To: "Barcelona"}>
+Record<{From: "Madrid", To: "Barcelona"}>
+Record<{From: "Madrid", To: "Barcelona"}>
+Record<{From: "Barcelona", To: "Paris"}>
+Record<{From: "Barcelona", To: "Paris"}>
+Record<{From: "Barcelona", To: "Paris"}>
+Record<{From: "Barcelona", To: "Paris"}>
+
+#5 Liste as empresas de transporte e o número total de cidades em que operam.
+Record<{Company: "Alpha Transports", TotalCities: 18}>
+Record<{Company: "FastRail", TotalCities: 9}>
+Record<{Company: "AirLink", TotalCities: 9}>
+
+#6 Conte o número total de cidades no sistema.
+Record<{TotalCities: 10}>
+
+#7 Liste todas as rotas com distâncias superiores a 500 km e as cidades conectadas por essas rotas.
+Record<{c1.name: "Porto", c2.name: "Madrid"}>
+Record<{c1.name: "Porto", c2.name: "Madrid"}>
+Record<{c1.name: "Porto", c2.name: "Madrid"}>
+Record<{c1.name: "Porto", c2.name: "Madrid"}>
+Record<{c1.name: "Porto", c2.name: "Madrid"}>
+Record<{c1.name: "Madrid", c2.name: "Barcelona"}>
+Record<{c1.name: "Madrid", c2.name: "Barcelona"}>
+Record<{c1.name: "Madrid", c2.name: "Barcelona"}>
+Record<{c1.name: "Madrid", c2.name: "Barcelona"}>
+Record<{c1.name: "Madrid", c2.name: "Barcelona"}>
+Record<{c1.name: "Barcelona", c2.name: "Paris"}>
+Record<{c1.name: "Barcelona", c2.name: "Paris"}>
+Record<{c1.name: "Barcelona", c2.name: "Paris"}>
+Record<{c1.name: "Barcelona", c2.name: "Paris"}>
+Record<{c1.name: "Barcelona", c2.name: "Paris"}>
+Record<{c1.name: "Porto", c2.name: "Madrid"}>
+Record<{c1.name: "Porto", c2.name: "Madrid"}>
+Record<{c1.name: "Porto", c2.name: "Madrid"}>
+Record<{c1.name: "Porto", c2.name: "Madrid"}>
+Record<{c1.name: "Madrid", c2.name: "Barcelona"}>
+Record<{c1.name: "Madrid", c2.name: "Barcelona"}>
+Record<{c1.name: "Madrid", c2.name: "Barcelona"}>
+Record<{c1.name: "Madrid", c2.name: "Barcelona"}>
+Record<{c1.name: "Barcelona", c2.name: "Paris"}>
+Record<{c1.name: "Barcelona", c2.name: "Paris"}>
+Record<{c1.name: "Barcelona", c2.name: "Paris"}>
+Record<{c1.name: "Barcelona", c2.name: "Paris"}>
+
+#8 Liste as cidades e o número total de conexões que cada uma possui.
+Record<{City: "Lisboa", Connections: 9}>
+Record<{City: "Porto", Connections: 9}>
+Record<{City: "Madrid", Connections: 9}>
+Record<{City: "Barcelona", Connections: 9}>
+
+#9 Encontre a menor distância entre quaisquer duas cidades conectadas diretamente.
+Record<{ShortestRoute: 313}>
+
+#10 Liste todas as conexões entre cidades, indicando a cidade de origem e a cidade de destino.
+Record<{Start: "Lisboa", End: "Porto"}>
+Record<{Start: "Lisboa", End: "Porto"}>
+Record<{Start: "Lisboa", End: "Porto"}>
+Record<{Start: "Lisboa", End: "Porto"}>
+Record<{Start: "Lisboa", End: "Porto"}>
+Record<{Start: "Porto", End: "Madrid"}>
+Record<{Start: "Porto", End: "Madrid"}>
+Record<{Start: "Porto", End: "Madrid"}>
+Record<{Start: "Porto", End: "Madrid"}>
+Record<{Start: "Porto", End: "Madrid"}>
+Record<{Start: "Madrid", End: "Barcelona"}>
+Record<{Start: "Madrid", End: "Barcelona"}>
+Record<{Start: "Madrid", End: "Barcelona"}>
+Record<{Start: "Madrid", End: "Barcelona"}>
+Record<{Start: "Madrid", End: "Barcelona"}>
+Record<{Start: "Barcelona", End: "Paris"}>
+Record<{Start: "Barcelona", End: "Paris"}>
+Record<{Start: "Barcelona", End: "Paris"}>
+Record<{Start: "Barcelona", End: "Paris"}>
+Record<{Start: "Barcelona", End: "Paris"}>
+Record<{Start: "Lisboa", End: "Porto"}>
+Record<{Start: "Lisboa", End: "Porto"}>
+Record<{Start: "Lisboa", End: "Porto"}>
+Record<{Start: "Lisboa", End: "Porto"}>
+Record<{Start: "Porto", End: "Madrid"}>
+Record<{Start: "Porto", End: "Madrid"}>
+Record<{Start: "Porto", End: "Madrid"}>
+Record<{Start: "Porto", End: "Madrid"}>
+Record<{Start: "Madrid", End: "Barcelona"}>
+Record<{Start: "Madrid", End: "Barcelona"}>
+Record<{Start: "Madrid", End: "Barcelona"}>
+Record<{Start: "Madrid", End: "Barcelona"}>
+Record<{Start: "Barcelona", End: "Paris"}>
+Record<{Start: "Barcelona", End: "Paris"}>
+Record<{Start: "Barcelona", End: "Paris"}>
+Record<{Start: "Barcelona", End: "Paris"}>
+

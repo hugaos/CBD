@@ -1,0 +1,22 @@
+# CBD - Lab201 - 112733
+
+>show dbs
+admin                      40.00 KiB
+config                     92.00 KiB
+local                      72.00 KiB
+mongodbVSCodePlaygroundDB  40.00 KiB
+
+>show tables
+sales
+
+>show users
+[]
+
+
+>use cbd
+<switched to db cbd
+>show collections
+<rest
+>db.rest.count()
+<3772
+

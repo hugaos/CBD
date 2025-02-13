@@ -1,0 +1,17 @@
+SET user:1 "Alice"
+SET user:2 "Bob"
+SET user:3 "Charlie"
+GET user:1
+GET user:2
+DEL user:3
+LPUSH mylist "item1"
+LPUSH mylist "item2"
+RPUSH mylist "item3"
+LRANGE mylist 0 -1
+SADD myset "value1"
+SADD myset "value2"
+SADD myset "value3"
+SMEMBERS myset
+EXPIRE user:1 60
+TTL user:1
+INCR counter

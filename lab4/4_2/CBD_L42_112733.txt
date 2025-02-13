@@ -1,0 +1,115 @@
+// NMEC: 112733
+
+#1
+match (m)-[:DIRECTED]->(n)-[:ACTED_IN]-(m) return m.name AS actor, n.title as Movie
+
+#2
+match (a)-[:ACTED_IN]-(m) where m.released>2005 return a.name AS actor, m.title as movie
+
+#3 
+match (a)-[r]-(m) with a,m, count(r) as numRelations where numRelations>1 return a,m,numRelations
+
+#4
+match (a1:Person)-[:REVIEWED]-(m)-[:REVIEWED]-(a2:Person) return a1.name,ax2.name,m.title 
+// Retorna pares duplicados
+
+#5
+match (a1:Person)-[:ACTED_IN]-(m:Movie)-[:ACTED_IN]-(a2:Person) with a1,a2, count(m) as numMovies where numMovies>1 return a1.name,a2.name,numMovies
+// Retorna pares duplicados
+
+#6 
+match (a:Person)-[:ACTED_IN]-(m:Movie {title:"Apollo 13"}) return avg(m.released-a.born)
+
+#7
+match (a:Person)-[:ACTED_IN]-(m:Movie) WITH m, AVG(m.released - a.born) AS averageAge return m.title as movie, round(averageAge,2) as roundedAvg order by roundedAvg desc LIMIT 10;
+
+#8
+MATCH (p:Person)-[:ACTED_IN]->(m:Movie) WITH m, AVG(m.released - p.born) AS averageAge ORDER BY averageAge ASC LIMIT 1 
+MATCH (p:Person)-[r:ACTED_IN]->(m)
+RETURN p, r, m;
+
+#9 
+MATCH p = shortestPath((a1:Person {name: "John Cusack"})-[*]-(a2:Person {name: "Demi Moore"})) RETURN p;
+
+#10
+MATCH p = shortestPath((a1:Person {name: "John Cusack"})-[*]-(a2:Person {name: "Demi Moore"})) RETURN length(p);
+
+
+#11
+MATCH (a:Person), (b:Person)
+WHERE a.name CONTAINS "Jim" AND b.name CONTAINS "Kevin"
+MATCH p = shortestPath((a)-[*]-(b))
+RETURN a.name AS Person1, b.name AS Person2, length(p) AS ShortestPathLength
+ORDER BY ShortestPathLength;
+
+#12
+MATCH (a:Person {name: "Jim Cash"})-[*2]-(b:Person)
+RETURN DISTINCT b.name AS Person;
+
+#13
+MATCH (a:Person), (b:Person {name: "Kevin Bacon"})
+MATCH p = shortestPath((a)-[*]-(b))
+RETURN MAX(length(p)) AS MaxDistanceToKevinBacon;
+
+#14
+MATCH (a:Person), (b:Person)
+MATCH p = shortestPath((a)-[*]-(b))
+RETURN MAX(length(p)) AS MaxDistanceBetweenPeople;
+
+#15
+MATCH (p1:Person)-[:ACTED_IN*]-(p2:Person)
+WHERE id(p1) <> id(p2)
+WITH p1, AVG(length(shortestPath((p1)-[:ACTED_IN*]-(p2)))) AS avgDistance
+RETURN p1.name AS Person, avgDistance
+ORDER BY avgDistance ASC LIMIT 10;
+
+#16
+MATCH (a1:Person)-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(a2:Person)
+WHERE id(a1) < id(a2) // Evita duplicados
+WITH a1, a2, COUNT(m) AS numMovies
+WHERE numMovies >= 2
+RETURN a1.name AS Actor1, a2.name AS Actor2, numMovies
+ORDER BY numMovies DESC;
+
+#17
+MATCH (a:Person)-[r:ACTED_IN]->(m:Movie)
+WHERE ANY(role IN r.roles WHERE role STARTS WITH "Dr.")
+RETURN a.name AS Actor, COLLECT(r.roles) AS Roles
+ORDER BY a.name;
+
+#18
+Liste os filmes com o maior número de atores distintos e o total de atores.
+MATCH (a:Person)-[:ACTED_IN]->(m:Movie)
+WITH m, COUNT(DISTINCT a) AS totalActors
+RETURN m.title AS Movie, totalActors
+ORDER BY totalActors DESC LIMIT 10;
+
+
+#19
+Encontre os atores que atuaram no maior número de filmes dirigidos pela mesma pessoa.
+MATCH (a:Person)-[:ACTED_IN]->(m:Movie)<-[:DIRECTED]-(d:Person)
+WITH a, d, COUNT(m) AS totalMovies
+RETURN a.name AS Actor, d.name AS Director, totalMovies
+ORDER BY totalMovies DESC LIMIT 10;
+
+#20
+Qual é o caminho mais curto entre dois atores com o maior número de relações comuns?
+MATCH (a1:Person)-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(a2:Person)
+WHERE id(a1) < id(a2)
+WITH a1, a2, COUNT(m) AS sharedMovies
+WHERE sharedMovies > 2
+MATCH p = shortestPath((a1)-[*]-(a2))
+RETURN a1.name, a2.name, sharedMovies, length(p) AS ShortestPathLength
+ORDER BY sharedMovies DESC LIMIT 1;
+
+
+
+
+
+
+
+
+
+
+
+

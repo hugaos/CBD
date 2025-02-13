@@ -1,0 +1,1010 @@
+NMEC: 112733
+
+// 1. Liste todos os documentos da coleção.
+db.rest.find()
+// mostra varios elementos de restaurante.json, podendo escrever "it" para mostrar mais.
+
+// 2. Apresente os campos restaurant_id, nome, localidade e gastronomia para todos os
+documentos da coleção.
+db.rest.find({}, {restaurant_id: 1, nome: 1, localidade: 1, gastronomia: 1})
+// 3772 resultados, sendo um deles {
+  _id: ObjectId('66fbc26cd5a44b2a5ccfc26e'),
+  localidade: 'Brooklyn',
+  gastronomia: 'American',
+  nome: 'The Movable Feast',
+  restaurant_id: '40361606'
+}
+
+// 3. Apresente os campos restaurant_id, nome, localidade e código postal (zipcode), mas
+exclua o campo _id de todos os documentos da coleção.
+db.rest.find({}, {_id: 0, restaurant_id: 1, nome: 1, localidade: 1, "address.zipcode": 1})
+// 3772 resultados, sendo um : {
+  address: {
+    zipcode: '10462'
+  },
+  localidade: 'Bronx',
+  nome: 'Morris Park Bake Shop',
+  restaurant_id: '30075445'
+}
+
+// 4. Indique o total de restaurantes localizados no Bronx.
+db.rest.count({localidade:"Bronx"})
+//309
+
+// 5.Apresente os primeiros 15 restaurantes localizados no Bronx, ordenados por
+ordem crescente de nome.
+db.rest.find({},{nome:1,localidade:"Bronx"}).sort({"nome": 1}).limit(15)
+// 
+
+// 6. Liste todos os restaurantes que tenham pelo menos um score superior a 85.
+db.rest.find({"grades.score": {$gt:85}})
+//{
+  _id: ObjectId('66fbc26cd5a44b2a5ccfc3b9'),
+  address: {
+    building: '65',
+    coord: [
+      -73.9782725,
+      40.7624022
+    ],
+    rua: 'West   54 Street',
+    zipcode: '10019'
+  },
+  localidade: 'Manhattan',
+  gastronomia: 'American',
+  grades: [
+    {
+      date: 2014-08-22T00:00:00.000Z,
+      grade: 'A',
+      score: 11
+    },
+    {
+      date: 2014-03-28T00:00:00.000Z,
+      grade: 'C',
+      score: 131
+    },
+    {
+      date: 2013-09-25T00:00:00.000Z,
+      grade: 'A',
+      score: 11
+    },
+    {
+      date: 2013-04-08T00:00:00.000Z,
+      grade: 'B',
+      score: 25
+    },
+    {
+      date: 2012-10-15T00:00:00.000Z,
+      grade: 'A',
+      score: 11
+    },
+    {
+      date: 2011-10-19T00:00:00.000Z,
+      grade: 'A',
+      score: 13
+    }
+  ],
+  nome: "Murals On 54/Randolphs'S",
+  restaurant_id: '40372466'
+}
+{
+  _id: ObjectId('66fbc26cd5a44b2a5ccfc45a'),
+  address: {
+    building: '345',
+    coord: [
+      -73.9864626,
+      40.7266739
+    ],
+    rua: 'East 6 Street',
+    zipcode: '10003'
+  },
+  localidade: 'Manhattan',
+  gastronomia: 'Indian',
+  grades: [
+    {
+      date: 2014-09-15T00:00:00.000Z,
+      grade: 'A',
+      score: 5
+    },
+    {
+      date: 2014-01-14T00:00:00.000Z,
+      grade: 'A',
+      score: 8
+    },
+    {
+      date: 2013-05-30T00:00:00.000Z,
+      grade: 'A',
+      score: 12
+    },
+    {
+      date: 2013-04-24T00:00:00.000Z,
+      grade: 'P',
+      score: 2
+    },
+    {
+      date: 2012-10-01T00:00:00.000Z,
+      grade: 'A',
+      score: 9
+    },
+    {
+      date: 2012-04-06T00:00:00.000Z,
+      grade: 'C',
+      score: 92
+    },
+    {
+      date: 2011-11-03T00:00:00.000Z,
+      grade: 'C',
+      score: 41
+    }
+  ],
+  nome: 'Gandhi',
+  restaurant_id: '40381295'
+}
+{
+  _id: ObjectId('66fbc26cd5a44b2a5ccfc5bd'),
+  address: {
+    building: '130',
+    coord: [
+      -73.984758,
+      40.7457939
+    ],
+    rua: 'Madison Avenue',
+    zipcode: '10016'
+  },
+  localidade: 'Manhattan',
+  gastronomia: 'Pizza/Italian',
+  grades: [
+    {
+      date: 2014-12-24T00:00:00.000Z,
+      grade: 'Z',
+      score: 31
+    },
+    {
+      date: 2014-06-17T00:00:00.000Z,
+      grade: 'C',
+      score: 98
+    },
+    {
+      date: 2013-12-12T00:00:00.000Z,
+      grade: 'C',
+      score: 32
+    },
+    {
+      date: 2013-05-22T00:00:00.000Z,
+      grade: 'B',
+      score: 21
+    },
+    {
+      date: 2012-05-02T00:00:00.000Z,
+      grade: 'A',
+      score: 11
+    }
+  ],
+  nome: 'Bella Napoli',
+  restaurant_id: '40393488'
+}
+{
+  _id: ObjectId('66fbc26dd5a44b2a5ccfce29'),
+  address: {
+    building: '',
+    coord: [
+      -74.0163793,
+      40.7167671
+    ],
+    rua: 'Hudson River',
+    zipcode: '10282'
+  },
+  localidade: 'Manhattan',
+  gastronomia: 'American',
+  grades: [
+    {
+      date: 2014-06-27T00:00:00.000Z,
+      grade: 'C',
+      score: 89
+    },
+    {
+      date: 2013-06-06T00:00:00.000Z,
+      grade: 'A',
+      score: 6
+    },
+    {
+      date: 2012-06-19T00:00:00.000Z,
+      grade: 'A',
+      score: 13
+    }
+  ],
+  nome: 'West 79Th Street Boat Basin Cafe',
+  restaurant_id: '40756344'
+}
+//8. db.rest.find({"address.coord.0":{$lt:-95}})
+
+{
+  _id: ObjectId('66fbc26dd5a44b2a5ccfc8a3'),
+  address: {
+    building: '3707',
+    coord: [
+      -101.8945214,
+      33.5197474
+    ],
+    rua: '82 Street',
+    zipcode: '11372'
+  },
+  localidade: 'Queens',
+  gastronomia: 'American',
+  grades: [
+    {
+      date: 2014-06-04T00:00:00.000Z,
+      grade: 'A',
+      score: 12
+    },
+    {
+      date: 2013-11-07T00:00:00.000Z,
+      grade: 'B',
+      score: 19
+    },
+    {
+      date: 2013-05-17T00:00:00.000Z,
+      grade: 'A',
+      score: 11
+    },
+    {
+      date: 2012-08-29T00:00:00.000Z,
+      grade: 'A',
+      score: 11
+    },
+    {
+      date: 2012-04-03T00:00:00.000Z,
+      grade: 'A',
+      score: 12
+    },
+    {
+      date: 2011-11-16T00:00:00.000Z,
+      grade: 'A',
+      score: 7
+    }
+  ],
+  nome: 'Burger King',
+  restaurant_id: '40534067'
+}
+
+9. Indique os restaurantes que não têm gastronomia "American", tiveram uma (ou
+mais) pontuação superior a 70 e estão numa latitude inferior a -65.
+
+db.rest.find({"gastronomia": {$ne: "American"}, "grades.score": {$gt : 70}, "address.coord.0": {$lt : -65}})
+
+{
+  _id: ObjectId('66fbc26cd5a44b2a5ccfc45a'),
+  address: {
+    building: '345',
+    coord: [
+      -73.9864626,
+      40.7266739
+    ],
+    rua: 'East 6 Street',
+    zipcode: '10003'
+  },
+  localidade: 'Manhattan',
+  gastronomia: 'Indian',
+  grades: [
+    {
+      date: 2014-09-15T00:00:00.000Z,
+      grade: 'A',
+      score: 5
+    },
+    {
+      date: 2014-01-14T00:00:00.000Z,
+      grade: 'A',
+      score: 8
+    },
+    {
+      date: 2013-05-30T00:00:00.000Z,
+      grade: 'A',
+      score: 12
+    },
+    {
+      date: 2013-04-24T00:00:00.000Z,
+      grade: 'P',
+      score: 2
+    },
+    {
+      date: 2012-10-01T00:00:00.000Z,
+      grade: 'A',
+      score: 9
+    },
+    {
+      date: 2012-04-06T00:00:00.000Z,
+      grade: 'C',
+      score: 92
+    },
+    {
+      date: 2011-11-03T00:00:00.000Z,
+      grade: 'C',
+      score: 41
+    }
+  ],
+  nome: 'Gandhi',
+  restaurant_id: '40381295'
+}
+// 1 de 5 resultados
+
+10. Liste o restaurant_id, o nome, a localidade e gastronomia dos restaurantes cujo nome
+começam por "Wil".
+db.rest.find({"nome": /^Wil/}, {"restaurant_id": 1, "nome": 1, "localidade": 1, "gastronomia": 1})
+
+{
+  _id: ObjectId('66fbc26cd5a44b2a5ccfc262'),
+  localidade: 'Brooklyn',
+  gastronomia: 'Delicatessen',
+  nome: "Wilken'S Fine Food",
+  restaurant_id: '40356483'
+}
+{
+  _id: ObjectId('66fbc26cd5a44b2a5ccfc265'),
+  localidade: 'Bronx',
+  gastronomia: 'American',
+  nome: 'Wild Asia',
+  restaurant_id: '40357217'
+}
+{
+  _id: ObjectId('66fbc26dd5a44b2a5ccfd06a'),
+  localidade: 'Bronx',
+  gastronomia: 'Pizza',
+  nome: 'Wilbel Pizza',
+  restaurant_id: '40871979'
+}
+
+11. Liste o nome, a localidade e a gastronomia dos restaurantes que pertencem ao Bronx
+e cuja gastronomia é do tipo "American" ou "Chinese".
+db.rest.find({$and : [{localidade: "Bronx"}, {gastronomia:{$in: ["American" , "Chinese"]}}]}, {"nome": 1, "localidade": 1, "gastronomia": 1})
+
+12. Liste o restaurant_id, o nome, a localidade e a gastronomia dos restaurantes
+localizados em "Staten Island", "Queens", ou "Brooklyn".
+db.rest.find({$and : [{localidade: "Bronx"}, {gastronomia:{$in: ["American" , "Chinese"]}}]}, {"nome": 1, "localidade": 1, "gastronomia": 1})
+
+{
+  _id: ObjectId('66fbc26cd5a44b2a5ccfc265'),
+  localidade: 'Bronx',
+  gastronomia: 'American',
+  nome: 'Wild Asia'
+}
+
+13. Liste o nome, a localidade, o score e gastronomia dos restaurantes que alcançaram
+sempre pontuações inferiores ou igual a 3.
+db.rest.find({grades: { $not: { $elemMatch: { score: { $gt: 3 } }} }},{ nome: 1, localidade: 1,"grades.score": 1, gastronomia: 1 })
+
+  _id: ObjectId('66fbc26cd5a44b2a5ccfc4dd'),
+  localidade: 'Brooklyn',
+  gastronomia: 'Hamburgers',
+  grades: [
+    {
+      score: 2
+    },
+    {
+      score: 3
+    },
+    {
+      score: 0
+    }
+  ],
+  nome: 'White Castle'
+}
+// 1 de 4 resultados
+
+14. Liste o nome e as avaliações dos restaurantes que obtiveram uma avaliação com
+um grade "A", um score 10 na data "2014-08-11T00: 00: 00Z" (ISODATE).
+db.rest.find({"grades": {"$elemMatch": {grade:"A", score: 10, date: ISODate("2014-08-11T00:00:00Z")}}}, {"nome": 1, "grades.grade":1})
+	{
+  _id: ObjectId('66fbc26cd5a44b2a5ccfc2ad'),
+  grades: [
+    {
+      grade: 'A'
+    },
+    {
+      grade: 'A'
+    },
+    {
+      grade: 'A'
+    },
+    {
+      grade: 'A'
+    }
+  ],
+  nome: 'Serendipity 3'
+}
+// 1 de 6
+15.Liste o restaurant_id, o nome e os score dos restaurantes nos quais a segunda
+avaliação foi grade "A" e ocorreu em ISODATE "2014-08-11T00: 00: 00Z".
+db.rest.find({"grades.1.grade": "A", "grades.1.date": ISODate("2014-08-11T00:00:00Z")}, {"restaurant_id": 1, "nome": 1, "grades.score":1})
+
+
+  _id: ObjectId('66fbc26dd5a44b2a5ccfc886'),
+  grades: [
+    {
+      score: 10
+    },
+    {
+      score: 9
+    },
+    {
+      score: 13
+    },
+    {
+      score: 10
+    },
+    {
+      score: 11
+    }
+  ],
+  nome: 'Club Macanudo (Cigar Bar)',
+  restaurant_id: '40526406'
+}
+{
+  _id: ObjectId('66fbc26dd5a44b2a5ccfcb23'),
+  grades: [
+    {
+      score: 9
+    },
+    {
+      score: 10
+    },
+    {
+      score: 22
+    },
+    {
+      score: 5
+    },
+    {
+      score: 11
+    }
+  ],
+  nome: "Gene'S Coffee Shop",
+  restaurant_id: '40614916'
+}
+16.Liste o restaurant_id, o nome, o endereço (address) dos restaurantes onde o 2º
+elemento da matriz de coordenadas (coord) tem um valor superior a 42 e inferior
+ou igual a 52.
+db.rest.find({"address.coord.1": {$gt: 42, $lte: 52}}, {"restaurant_id":1, "nome":1, "address":1})
+{
+  _id: ObjectId('66fbc26cd5a44b2a5ccfc4fd'),
+  address: {
+    building: '47',
+    coord: [
+      -78.877224,
+      42.89546199999999
+    ],
+    rua: 'Broadway @ Trinity Pl',
+    zipcode: '10006'
+  },
+  nome: "T.G.I. Friday'S",
+  restaurant_id: '40387990'
+}
+{
+  _id: ObjectId('66fbc26cd5a44b2a5ccfc529'),
+  address: {
+    building: '1',
+    coord: [
+      -0.7119979,
+      51.6514664
+    ],
+    rua: 'Pennplaza E, Penn Sta',
+    zipcode: '10001'
+  },
+  nome: 'T.G.I. Fridays',
+  restaurant_id: '40388936'
+}
+{
+  _id: ObjectId('66fbc26dd5a44b2a5ccfc782'),
+  address: {
+    building: '3000',
+    coord: [
+      -87.86567699999999,
+      42.61150920000001
+    ],
+    rua: '47 Avenue',
+    zipcode: '11101'
+  },
+  nome: "Di Luvio'S Deli",
+  restaurant_id: '40402284'
+}
+{
+  _id: ObjectId('66fbc26dd5a44b2a5ccfc9b7'),
+  address: {
+    building: '21972199',
+    coord: [
+      -78.589606,
+      42.8912372
+    ],
+    rua: 'Broadway',
+    zipcode: '10024'
+  },
+  nome: 'La Caridad 78',
+  restaurant_id: '40568285'
+}
+{
+  _id: ObjectId('66fbc26dd5a44b2a5ccfd089'),
+  address: {
+    building: '7981',
+    coord: [
+      -84.9751215,
+      45.4713351
+    ],
+    rua: 'Hoyt Street',
+    zipcode: '11201'
+  },
+  nome: "Bijan'S",
+  restaurant_id: '40876618'
+}
+{
+  _id: ObjectId('66fbc26dd5a44b2a5ccfd09e'),
+  address: {
+    building: '0',
+    coord: [
+      -88.0778799,
+      42.4154769
+    ],
+    rua: '& Grand Central',
+    zipcode: '10017'
+  },
+  nome: 'Hyatt, Ny Central/Room Service',
+  restaurant_id: '40879243'
+}
+{
+  _id: ObjectId('66fbc26dd5a44b2a5ccfd0b4'),
+  address: {
+    building: '60',
+    coord: [
+      -111.9975205,
+      42.0970258
+    ],
+    rua: 'West Side Highway',
+    zipcode: '10006'
+  },
+  nome: 'Sports Center At Chelsea Piers (Sushi Bar)',
+  restaurant_id: '40882356'
+}
+17. Liste nome, gastronomia e localidade de todos os restaurantes ordenando por ordem
+crescente da gastronomia e, em segundo, por ordem decrescente de localidade.
+
+db.rest.find({}, {"nome": 1, "gastronomia": 1, "localidade": 1}).sort({"gastronomia": 1, "localidade": -1})
+
+{
+  _id: ObjectId('66fbc26dd5a44b2a5ccfca71'),
+  localidade: 'Manhattan',
+  gastronomia: 'Afghan',
+  nome: 'Khyber Pass'
+}
+{
+  _id: ObjectId('66fbc26dd5a44b2a5ccfc946'),
+  localidade: 'Manhattan',
+  gastronomia: 'Afghan',
+  nome: 'Afghan Kebab House'
+}
+{
+  _id: ObjectId('66fbc26dd5a44b2a5ccfd04d'),
+  localidade: 'Manhattan',
+  gastronomia: 'Afghan',
+  nome: 'Ariana Kebab House'
+}
+
+18.Liste nome, localidade, grade e gastronomia de todos os restaurantes localizados em
+Brooklyn que não incluem gastronomia "American" e obtiveram uma classificação
+(grade) "A". Deve apresentá-los por ordem decrescente de gastronomia.
+
+db.rest.find({$and: [{localidade: "Brooklyn"}, {gastronomia: {$ne: "American"}}, {"grades": {$elemMatch: {"grade": "A"}}}]}, {"nome": 1, "localidade": 1, "grades.grade": 1, "gastronomia": 1}).sort({"gastronomia": -1})
+
+{
+  _id: ObjectId('66fbc26dd5a44b2a5ccfcde2'),
+  localidade: 'Brooklyn',
+  gastronomia: 'Vegetarian',
+  grades: [
+    {
+      grade: 'A'
+    },
+    {
+      grade: 'A'
+    },
+    {
+      grade: 'A'
+    },
+    {
+      grade: 'A'
+    },
+    {
+      grade: 'A'
+    },
+    {
+      grade: 'C'
+    }
+  ],
+  nome: 'Original Vegetarian Restaurant'
+}
+{
+  _id: ObjectId('66fbc26dd5a44b2a5ccfca63'),
+  localidade: 'Brooklyn',
+  gastronomia: 'Vegetarian',
+  grades: [
+    {
+      grade: 'A'
+    },
+    {
+      grade: 'A'
+    },
+    {
+      grade: 'A'
+    },
+    {
+      grade: 'C'
+    },
+    {
+      grade: 'A'
+    }
+  ],
+  nome: 'Strictly Vegetarian'
+}
+{
+  _id: ObjectId('66fbc26dd5a44b2a5ccfce55'),
+  localidade: 'Brooklyn',
+  gastronomia: 'Vegetarian',
+  grades: [
+    {
+      grade: 'A'
+    },
+    {
+      grade: 'A'
+    },
+    {
+      grade: 'A'
+    }
+  ],
+  nome: 'Bliss Bakery & Cafe'
+}
+{
+  _id: ObjectId('66fbc26dd5a44b2a5ccfce4e'),
+  localidade: 'Brooklyn',
+  gastronomia: 'Turkish',
+  grades: [
+    {
+      grade: 'A'
+    },
+    {
+      grade: 'A'
+    },
+    {
+      grade: 'B'
+    },
+    {
+      grade: 'A'
+    },
+    {
+      grade: 'B'
+    },
+    {
+      grade: 'A'
+    }
+  ],
+  nome: 'Memo Shish Kebab'
+}
+19. Indique o número total de avaliações (numGrades) na coleção.
+db.rest.aggregate([{$project: {numGrades: {$size: "$grades"}}}, {$group: {_id: null, total: {$sum: "$numGrades"}}}])
+
+{
+  _id: null,
+  total: 18142
+}
+
+20. Apresente o nome e número de avaliações (numGrades) dos 3 restaurante com
+mais avaliações.
+db.rest.aggregate([{$project: {"nome": 1, "numGrades": {$size: "$grades"}}}, {$sort: {numGrades: -1}}, {$limit: 3}])
+{
+  _id: ObjectId('66fbc26cd5a44b2a5ccfc368'),
+  nome: 'Bronx Grill',
+  numGrades: 8
+}
+{
+  _id: ObjectId('66fbc26cd5a44b2a5ccfc356'),
+  nome: 'Blue Bay Restaurant',
+  numGrades: 8
+}
+{
+  _id: ObjectId('66fbc26cd5a44b2a5ccfc276'),
+  nome: 'Ho Mei Restaurant',
+  numGrades: 8
+}
+21. Apresente o número total de avaliações (numGrades) em cada dia da semana.
+
+
+22. Conte o total de restaurante existentes em cada localidade.
+db.rest.aggregate([{$group: {_id: "$localidade", total: {$sum: 1}}}])
+{
+  _id: 'Manhattan',
+  total: 1883
+}
+{
+  _id: 'Brooklyn',
+  total: 684
+}
+{
+  _id: 'Bronx',
+  total: 309
+}
+{
+  _id: 'Queens',
+  total: 738
+}
+{
+  _id: 'Queens',
+  total: 738
+}
+
+23. Indique os restaurantes que têm gastronomia "Portuguese", o somatório de score é
+superior a 50 e estão numa latitude inferior a -60.
+db.rest.find({gastronomia: "Portuguese", $expr: {$gt: [{$sum: "$grades.score"}, 50]}, "address.coord.0": {$lt: -60}})
+
+
+  _id: ObjectId('66fbc26cd5a44b2a5ccfc5f4'),
+  address: {
+    building: '222-05',
+    coord: [
+      -73.732315,
+      40.720725
+    ],
+    rua: 'Jamaica Avenue',
+    zipcode: '11428'
+  },
+  localidade: 'Queens',
+  gastronomia: 'Portuguese',
+  grades: [
+    {
+      date: 2014-09-17T00:00:00.000Z,
+      grade: 'A',
+      score: 13
+    },
+    {
+      date: 2014-07-25T00:00:00.000Z,
+      grade: 'P',
+      score: 8
+    },
+    {
+      date: 2014-02-20T00:00:00.000Z,
+      grade: 'B',
+      score: 19
+    },
+    {
+      date: 2013-07-17T00:00:00.000Z,
+      grade: 'B',
+      score: 14
+    },
+    {
+      date: 2012-03-01T00:00:00.000Z,
+      grade: 'A',
+      score: 13
+    }
+  ],
+  nome: 'Mateus Restaurant',
+  restaurant_id: '40394518'
+}
+{
+  _id: ObjectId('66fbc26dd5a44b2a5ccfc8b8'),
+  address: {
+    building: '322',
+    coord: [
+      -74.0093371,
+      40.7258846
+    ],
+    rua: 'Spring Street',
+    zipcode: '10013'
+  },
+  localidade: 'Manhattan',
+  gastronomia: 'Portuguese',
+  grades: [
+    {
+      date: 2014-07-02T00:00:00.000Z,
+      grade: 'B',
+      score: 26
+    },
+    {
+      date: 2014-06-03T00:00:00.000Z,
+      grade: 'P',	
+      score: 10
+    },
+    {
+      date: 2013-05-14T00:00:00.000Z,
+      grade: 'A',
+      score: 13
+    },
+    {
+      date: 2012-08-13T00:00:00.000Z,
+      grade: 'B',
+      score: 24
+    },
+    {
+      date: 2012-02-28T00:00:00.000Z,
+      grade: 'A',
+      score: 7
+    }
+  ],
+  nome: 'Pao',
+  restaurant_id: '40535455'
+}
+
+24. Apresente o número de gastronomias diferentes na rua "Fifth Avenue"
+
+db.rest.aggregate([{$match: {"address.rua": "Fifth Avenue"}}, {$group: {_id: "$gastronomia"}}, {$group: {_id: null, totalGastronomias: {$sum: 1}}}])
+
+{
+  _id: null,
+  totalGastronomias: 4
+}
+
+25. Apresente o nome e o score médio (avgScore) e número de avaliações (numGrades)
+dos restaurantes com score médio superior a 30 desde 1-Jan-2014
+
+db.restaurants.aggregate([{$unwind: "$grades"}, {$match: {"grades.date": {$gte: ISODate("2014-01-01")}}}, { $group: {_id: "$_id", nome: {$first: "$nome"}, totalScore: {$sum: "$grades.score"}, numGrades: {$sum: 1}}}, {$addFields: {avgScore: {$divide: ["$totalScore", "$numGrades"]}}}, {$match: {avgScore: {$gt: 30}}}, {$project: {_id: 0, nome: 1, avgScore: 1, numGrades: 1}}]) 
+
+{
+  nome: 'Seo Japanese Restaurant',
+  numGrades: 2,
+  avgScore: 42.5
+}
+{
+  nome: 'Cafe Lalo',
+  numGrades: 1,
+  avgScore: 50
+}
+{
+  nome: 'Acqua',
+  numGrades: 3,
+  avgScore: 33.333333333333336
+}
+{
+  nome: 'Europa Cafe',
+  numGrades: 2,
+  avgScore: 32.5
+}
+{
+  nome: "Murals On 54/Randolphs'S",
+  numGrades: 2,
+  avgScore: 71
+}
+{
+  nome: 'World Cup Cafe',
+  numGrades: 3,
+  avgScore: 33
+}
+{
+  nome: 'Rio Dela Plata Bakery',
+  numGrades: 2,
+  avgScore: 34.5
+}
+// ...
+
+26. Quais sao os 5 restaurantes com mais avaliações.
+db.rest.aggregate([{ $project: { nome: 1, numGrades: { $size: "$grades" } } },{ $sort: { numGrades: -1 } },{ $limit: 5 }])
+
+{
+  _id: ObjectId('66fbc26cd5a44b2a5ccfc368'),
+  nome: 'Bronx Grill',
+  numGrades: 8
+}
+{
+  _id: ObjectId('66fbc26cd5a44b2a5ccfc276'),
+  nome: 'Ho Mei Restaurant',
+  numGrades: 8
+}
+{
+  _id: ObjectId('66fbc26cd5a44b2a5ccfc276'),
+  nome: 'Ho Mei Restaurant',
+  numGrades: 8
+}
+{
+  _id: ObjectId('66fbc26cd5a44b2a5ccfc4b8'),
+  nome: 'Park Plaza Restaurant',
+  numGrades: 8
+}
+{
+  _id: ObjectId('66fbc26cd5a44b2a5ccfc356'),
+  nome: 'Blue Bay Restaurant',
+  numGrades: 8
+}
+
+27. Quais restaurantes têm o menor score (mínimo) registrado e qual é o valor?
+db.rest.aggregate([{ $unwind: "$grades" },{ $group: { _id: "$_id", nome: { $first: "$nome" }, minScore: { $min: "$grades.score" } } },{ $sort: { minScore: 1 } },{ $limit: 5 } ])
+
+{
+  _id: ObjectId('66fbc26cd5a44b2a5ccfc595'),
+  nome: 'Cafe Bella Vita',
+  minScore: -1
+}
+{
+  _id: ObjectId('66fbc26dd5a44b2a5ccfcf55'),
+  nome: 'Mercury Bar',
+  minScore: -1
+}
+{
+  _id: ObjectId('66fbc26dd5a44b2a5ccfce80'),
+  nome: "Mcdonald'S",
+  minScore: 0
+}
+{
+  _id: ObjectId('66fbc26dd5a44b2a5ccfcb3c'),
+  nome: 'Bond St',
+  minScore: 0
+}
+{
+  _id: ObjectId('66fbc26dd5a44b2a5ccfccce'),
+  nome: 'Lenfest Cafe - Jerome Green Hall',
+  minScore: 0
+}
+28: Quais restaurantes têm uma pontuação mínima de 4 em qualquer avaliação?
+db.rest.find({ "grades.score": { $gte: 4 } },{ nome: 1, "grades.score": 1 })
+{
+  _id: ObjectId('66fbc26cd5a44b2a5ccfc25b'),
+  grades: [
+    {
+      score: 2
+    },
+    {
+      score: 6
+    },
+    {
+      score: 10
+    },
+    {
+      score: 9
+    },
+    {
+      score: 14
+    }
+  ],
+  nome: 'Morris Park Bake Shop'
+}
+{
+  _id: ObjectId('66fbc26cd5a44b2a5ccfc25c'),
+  grades: [
+    {
+      score: 8
+    },
+    {
+      score: 23
+    },
+    {
+      score: 12
+    },
+    {
+      score: 12
+    }
+  ],
+  nome: "Wendy'S"
+}
+{
+  _id: ObjectId('66fbc26cd5a44b2a5ccfc266'),
+  grades: [
+    {
+      score: 5
+    },
+    {
+      score: 2
+    },
+    {
+      score: 5
+    },
+    {
+      score: 2
+    }	
+  ],
+  nome: 'C & C Catering Service'
+}
+
+29: Quantos restaurantes têm mais de 5 avaliações?
+db.rest.aggregate([{ $project: { nome: 1, numGrades: { $size: "$grades" } } },{ $match: { numGrades: { $gt:5 } } },{ $count: "totalRestaurantes" }])
+{
+  totalRestaurantes: 920
+}
+
+30: Qual é o restaurante com o maior score médio considerando apenas avaliações feitas após 1 de janeiro de 2015?
+db.rest.aggregate([{ $unwind: "$grades" },{ $match: { "grades.date": { $gte: ISODate("2015-01-01") } } },{ $group: { _id: "$_id", nome: { $first: "$nome" }, avgScore: { $avg: "$grades.score" } } },{ $sort: { avgScore: -1 } },{ $limit: 1 },{ $project: { _id: 0, nome: 1, avgScore: 1 } }])
+
+{
+  nome: 'La Palapa',
+  avgScore: 44
+}
+

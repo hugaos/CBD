@@ -1,0 +1,32 @@
+MATCH (u:User)
+RETURN u.real_name AS userName;
+
+MATCH (u:User)
+RETURN u.real_name AS userName;
+
+MATCH (p:Project)<-[:WORKED_ON]-(:User)
+RETURN DISTINCT p.name AS projectName;
+
+MATCH (u:User)-[:WORKED_ON]->(p:Project)
+RETURN u.real_name AS userName, COUNT(DISTINCT p) AS totalProjects;
+
+
+MATCH (u:User)-[:WORKED_ON]->(p:Project)
+RETURN u.real_name AS userName, COUNT(DISTINCT p) AS totalProjects
+ORDER BY totalProjects DESC;
+
+MATCH (p:Project)<-[:WORKED_ON]-(u:User)
+RETURN p.name AS projectName, COUNT(DISTINCT u) AS totalMembers;
+
+MATCH (p:Project)<-[r:WORKED_ON]-(u:User)
+WHERE r.role = "Committer"
+RETURN p.name AS projectName, COUNT(DISTINCT u) AS totalCommitters;
+
+MATCH (u1:User {svn_id: "atm"})-[:WORKED_ON]->(p:Project)<-[:WORKED_ON]-(u2:User)
+WHERE u1.svn_id <> u2.svn_id
+RETURN u1.real_name AS user1Name, u2.real_name AS user2Name, p.name AS projectName;
+
+MATCH (u1:User {svn_id: "atm"})-[r1:WORKED_ON {role: "PMC"}]->(p:Project)
+MATCH (u2:User)-[r2:WORKED_ON {role: "Committer"}]->(p)
+RETURN u2.real_name AS committerName, p.name AS projectName;
+

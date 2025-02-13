@@ -1,0 +1,13 @@
+[
+    {"user_id": "ecd61e1a-0725-41fb-a2ce-014ef7a60835", "email": "huguinho@example.com", "name": "Hugo", "registration_timestamp": "2024-11-05 09:57:21.992Z", "username": "hugao"},
+    {"user_id": "f4bb9421-4fb2-41b4-b915-c9fa92820e77", "email": "emailuser9@example.com", "name": "User9", "registration_timestamp": "2024-11-05 09:55:40.748Z", "username": "username9"},
+    {"user_id": "096cdfa1-d942-438d-876f-f75e2bd43f47", "email": "emailuser10@example.com", "name": "User10", "registration_timestamp": "2024-11-05 09:55:40.750Z", "username": "username10"},
+    {"user_id": "6d257d92-b729-49d5-b8a9-cf37acd84778", "email": "emailuser1@example.com", "name": "User1", "registration_timestamp": "2024-11-05 09:54:57.274Z", "username": "username1"},
+    {"user_id": "c3593b77-7124-49f8-a296-9df3a9c07022", "email": "emailuser8@example.com", "name": "User8", "registration_timestamp": "2024-11-05 09:55:40.745Z", "username": "username8"},
+    {"user_id": "f3cab3ca-1adc-4de4-bdc4-0dc8e11c6260", "email": "emailuser4@example.com", "name": "User4", "registration_timestamp": "2024-11-05 09:55:40.733Z", "username": "username4"},
+    {"user_id": "42caab6d-c19d-4b06-ad8d-7b9bf3682d1c", "email": "emailuser3@example.com", "name": "User3", "registration_timestamp": "2024-11-05 09:55:40.729Z", "username": "username3"},
+    {"user_id": "8d02c817-f0e4-4d00-9d7e-112367ed3526", "email": "emailuser5@example.com", "name": "User5", "registration_timestamp": "2024-11-05 09:55:40.736Z", "username": "username5"},
+    {"user_id": "c0cb6a68-afc1-4af5-a277-177df1833d51", "email": "emailuser7@example.com", "name": "User7", "registration_timestamp": "2024-11-05 09:55:40.742Z", "username": "username7"},
+    {"user_id": "19134763-668b-4883-b88d-83eb0a757519", "email": "emailuser6@example.com", "name": "User6", "registration_timestamp": "2024-11-05 09:55:40.739Z", "username": "username6"},
+    {"user_id": "f149cd89-ada6-41e5-b100-b1e45ed4a5f7", "email": "emailuser2@example.com", "name": "User2", "registration_timestamp": "2024-11-05 09:55:12.622Z", "username": "username2"}
+]
